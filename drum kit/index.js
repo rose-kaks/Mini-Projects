@@ -3,14 +3,24 @@ let eventType="click";
 
 document.addEventListener("keydown", function(event) {
     let key = event.key;
+    btnAnimation(key);
     makeSound(key);
 });
 
 for (let i=0; i<target.length; i++) {
     target[i].addEventListener(eventType, function() {
         let buttonInnerHTML=this.innerHTML;
+        btnAnimation(buttonInnerHTML);
         makeSound(buttonInnerHTML);
     })
+}
+
+function btnAnimation (key) {
+    let target=document.querySelector("."+key);
+    target.classList.add("pressed");
+    setTimeout(function() {
+        target.classList.remove("pressed");
+    }, 100);
 }
 
 function makeSound(key) {
