@@ -16,11 +16,21 @@ function nextSequence() {
     var randomChosenColor = buttonColors[randomNumber];
     $("#"+randomChosenColor).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
     playSound(randomChosenColor);
+    animatePress(randomChosenColor);
     gamePattern.push(randomChosenColor);
 }
 
 $(".btn").click(function() {
     var userChosenColor = $(this).attr("id");
+    $(this).fadeOut(100).fadeIn(100);
     playSound(userChosenColor);
+    animatePress(userChosenColor);
     userClickedPattern.push(userChosenColor);
 })
+
+function animatePress(currColor) {
+    $("#"+currColor).addClass("pressed");
+    setTimeout(function() {
+        $("#"+currColor).removeClass("pressed");
+    }, 100);
+}
