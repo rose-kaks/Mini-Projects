@@ -7,8 +7,10 @@
 //lets upgrade to import with ECMAScript (good practice now)
 //to use ES modules and import, we need to go to package.json and add or edit type, set it to "module"
 import generateStupidName from "sillyname";
+import { randomSuperhero } from "superheroes";
+
 var sillyname = generateStupidName();
 console.log(`My name is ${sillyname}.`);
 
-// import { randomSuperhero } from "superheroes";
-// const name=randomSuperhero();
+var name=randomSuperhero();
+console.log(`My favourite super hero is ${name}`);
